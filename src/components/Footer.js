@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="footer__credit">Maintained by Othmane Tayab</div>
       <div className="footer__github">
         <a
-          href="https://github.com/EternalValor"
+          href="https://github.com/EternalValor/covid19-morocco"
           alt="Github Link"
           className="link">
           <GitHubLogo />
