@@ -9,30 +9,41 @@ export default function AppProvider({ children }) {
   });
 
   React.useEffect(() => {
-    if (+new Date() - parseInt(window.localStorage.getItem('EXPIRES_AT')) > 0) {
-      fetch('https://angry-knuth.netlify.com/.netlify/functions/api/covid-19')
-        .then(res => res.json())
-        .then(data => {
-          if (!data.error) {
-            if (data.Total) setState(mapApiToStateFromSmallTable(data));
-            else setState(mapApiToState(data));
-            window.localStorage.setItem(
-              'EXPIRES_AT',
-              +new Date() + 20 * 60000 + ''
-            );
-            window.localStorage.setItem('DATA', JSON.stringify(data));
-          }
-        });
-    } else {
-      const data = JSON.parse(window.localStorage.getItem('DATA'));
-      if (data && !data.error) {
-        if (data.Total) setState(mapApiToStateFromSmallTable(data));
-        else setState(mapApiToState(data));
+    const expiresAt = window.localStorage.getItem('EXPIRES_AT');
+    console.log(!!expiresAt && +new Date() - expiresAt > 0);
+    console.log('expiresAt = ', expiresAt);
+    if (!!expiresAt) {
+      if (+new Date() - parseInt(expiresAt) > 0) {
+        fetchData(setState);
+      } else {
+        const data = JSON.parse(window.localStorage.getItem('DATA'));
+        if (data && !data.error) {
+          if (data.Total) setState(mapApiToStateFromSmallTable(data));
+          else setState(mapApiToState(data));
+        }
       }
+    } else {
+      fetchData(setState);
     }
   }, []);
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
+}
+
+async function fetchData(setState) {
+  fetch('https://angry-knuth.netlify.com/.netlify/functions/api/covid-19')
+    .then(res => res.json())
+    .then(data => {
+      if (!data.error) {
+        if (data.Total) setState(mapApiToStateFromSmallTable(data));
+        else setState(mapApiToState(data));
+        window.localStorage.setItem(
+          'EXPIRES_AT',
+          +new Date() + 20 * 60000 + ''
+        );
+        window.localStorage.setItem('DATA', JSON.stringify(data));
+      }
+    });
 }
 
 function mapApiToState(data) {
