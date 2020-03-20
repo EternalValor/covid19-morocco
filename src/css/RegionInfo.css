@@ -1,0 +1,62 @@
+.region-info {
+  position: absolute;
+  padding: 1rem 1.5rem;
+  min-width: 21rem;
+  min-height: 14rem;
+  max-height: 16.7rem;
+  background-color: var(--dark);
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.region__heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.region-stats {
+  margin-top: 1.5rem;
+}
+
+.region-stats__heading {
+  font-size: 1.2rem;
+}
+
+.region-stats__number {
+  color: var(--danger);
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.region-stats__number--small {
+  font-size: 1.75rem;
+}
+
+.region-stats__number--green {
+  color: var(--success);
+}
+
+.region-stats__number--yellow {
+  color: var(--warning);
+}
+
+.region__total {
+  text-align: center;
+}
+
+.region__sub-totals {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.region__sub-totals-container {
+  display: flex;
+}
+
+.region__sub-total {
+  margin: 0 2.2rem;
+}

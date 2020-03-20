@@ -1,0 +1,8 @@
+.footer {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(calc(-100% - 5rem));
+  font-size: 1.4rem;
+}

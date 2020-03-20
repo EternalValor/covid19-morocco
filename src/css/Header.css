@@ -1,0 +1,54 @@
+.heading {
+  font-size: 3.6rem;
+  font-weight: 500;
+}
+
+.header {
+  position: absolute;
+  top: 5rem;
+}
+
+.header__stats {
+  margin-top: 2.8rem;
+}
+
+.header__total {
+  text-align: center;
+}
+
+.header__sub-totals {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.header__sub-totals-container {
+  display: flex;
+}
+
+.header__sub-total {
+  margin: 0 4rem;
+}
+
+.stats-heading {
+  font-size: 1.6rem;
+}
+
+.stats-number {
+  color: var(--danger);
+  font-size: 3.6rem;
+  /* margin-top: 0.5rem; */
+}
+
+.stats-number--small {
+  font-size: 2.4rem;
+}
+
+.stats-number--green {
+  color: var(--success);
+}
+
+.stats-number--yellow {
+  color: var(--warning);
+}
