@@ -26,52 +26,24 @@ html {
   background-color: var(--bg-color);
 }
 
+@media (max-width: 1180px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-display: auto;
   font-weight: 400;
   line-height: 1.6;
   color: var(--primary);
-  padding: 0 calc((100vw - 1120px) / 2);
+  padding: 0 calc((100vw - 112rem) / 2);
 }
 
 .App {
   position: relative;
   min-height: 100vh;
-}
-
-.land {
-  fill: #cccccc;
-  fill-opacity: 1;
-  stroke: #777777;
-  stroke-opacity: 1;
-  stroke-width: 0.5;
-}
-
-.land--active {
-  fill: var(--dark) !important;
-}
-
-.map {
-  position: absolute;
-  top: 18rem;
-  right: 12rem;
-}
-
-.map--loading {
-  animation: fade-in-out 0.5s ease-in-out infinite;
-}
-
-@keyframes fade-in-out {
-  0% {
-    opacity: 40%;
-  }
-  50% {
-    opacity: 90%;
-  }
-  100% {
-    opacity: 40%;
-  }
 }
 
 .link,
@@ -80,4 +52,10 @@ body {
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
+}
+
+@media (max-width: 950px) {
+  body {
+    padding: 0 2rem;
+  }
 }

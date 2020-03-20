@@ -1,0 +1,52 @@
+.land {
+  fill: #cccccc;
+  fill-opacity: 1;
+  stroke: #777777;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+}
+
+.land--active {
+  fill: var(--dark) !important;
+}
+
+.map {
+  position: absolute;
+  top: 18rem;
+  right: 12rem;
+  width: 67rem;
+  height: 70rem;
+}
+
+.map--loading {
+  animation: fade-in-out 0.5s ease-in-out infinite;
+}
+
+@media (max-width: 950px) {
+  .map {
+    position: relative;
+    margin: 0 auto;
+    top: 0;
+    right: 0;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 565px) {
+  .map {
+    width: 93vw;
+    height: 97vw;
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 40%;
+  }
+  50% {
+    opacity: 90%;
+  }
+  100% {
+    opacity: 40%;
+  }
+}

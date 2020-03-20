@@ -10,7 +10,7 @@ export default function AppProvider({ children }) {
 
   React.useEffect(() => {
     if (+new Date() - window.localStorage.getItem('EXPIRES_AT') > 0) {
-      fetch('http://localhost:9000/.netlify/functions/api/covid-19')
+      fetch('http://angry-knuth.netlify.com/.netlify/functions/api/covid-19')
         .then(res => res.json())
         .then(data => {
           if (data.Total) setState(mapApiToStateFromSmallTable(data));

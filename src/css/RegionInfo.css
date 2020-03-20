@@ -60,3 +60,21 @@
 .region__sub-total {
   margin: 0 2.2rem;
 }
+
+@media (max-width: 500px) {
+  .region-info {
+    padding: 1.5rem 2rem;
+    min-height: 19.8vw;
+    transform: translateY(-6rem);
+  }
+
+  .region-info__heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .region-info {
+    transform: translateY(-8rem);
+  }
+}

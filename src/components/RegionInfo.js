@@ -17,8 +17,9 @@ export default function RegionInfo({ id }) {
       className="region-info"
       style={{
         top: `${top}%`,
-        left: `${left}%`,
-        display: id === null ? 'none' : 'block'
+        left: locations[id] && !locations[id].right ? `${left}%` : '',
+        display: id === null ? 'none' : 'block',
+        right: locations[id] && locations[id].right ? '3rem' : ''
       }}>
       <h3 className="region__heading">{title}</h3>
       <div className="region-stats">

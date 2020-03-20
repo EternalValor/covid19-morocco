@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Map.css';
 
 import RegionInfo from './RegionInfo';
 import { AppContext } from '../context/AppProvider';
@@ -21,6 +22,10 @@ export default function Map() {
     <div className={`map ${!Object.keys(regions).length && 'map--loading'}`}>
       <RegionInfo id={id} />
       <svg
+        style={{
+          width: '100%',
+          height: '100%'
+        }}
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         version="1.1"
