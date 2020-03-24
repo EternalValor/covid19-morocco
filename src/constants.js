@@ -67,4 +67,11 @@ export const locations = {
   }
 };
 
-export const colors = ['#d15252', '#c93636', '#ba1c1d', '#a3140f', '#6f0a07'];
+export const colors = [
+  '#d15252',
+  '#c93636',
+  '#ba1c1d',
+  '#a3140f',
+  '#6f0a07',
+  '#350200'
+];

@@ -3,6 +3,10 @@ import { colors } from '../constants';
 
 export const AppContext = React.createContext();
 
+const LOG_BASE = 2.5;
+const MAX_INDEX = colors.length - 1;
+const REFRESH_DELAY = 1.5;
+
 export default function AppProvider({ children }) {
   const [state, setState] = React.useState({
     regions: {}
@@ -39,7 +43,7 @@ async function fetchData(setState) {
         else setState(mapApiToState(data));
         window.localStorage.setItem(
           'EXPIRES_AT',
-          +new Date() + 20 * 60000 + ''
+          +new Date() + REFRESH_DELAY * 60000 + ''
         );
         window.localStorage.setItem('DATA', JSON.stringify(data));
       }
@@ -51,12 +55,12 @@ function mapApiToState(data) {
   const regions = Object.keys(data.regionResults).reduce((prev, curr) => {
     const total = data.regionResults[curr];
     totalCases += total;
-    const colorIndex = Math.floor(Math.log(total) / Math.log(3));
+    const colorIndex = Math.floor(Math.log(total) / Math.log(LOG_BASE));
     return {
       ...prev,
       [curr]: {
         total,
-        color: colorIndex > 4 ? colors[4] : colors[colorIndex]
+        color: colorIndex > MAX_INDEX ? colors[MAX_INDEX] : colors[colorIndex]
       }
     };
   }, {});
@@ -74,14 +78,14 @@ function mapApiToStateFromSmallTable(data) {
     if (curr !== 'Total') {
       const total = data[curr].cases;
       const { deaths, recoveries: recovered } = data[curr];
-      const colorIndex = Math.floor(Math.log(total) / Math.log(3));
+      const colorIndex = Math.floor(Math.log(total) / Math.log(LOG_BASE));
       return {
         ...prev,
         [curr]: {
           total,
           deaths,
           recovered,
-          color: colorIndex > 4 ? colors[4] : colors[colorIndex]
+          color: colorIndex > MAX_INDEX ? colors[MAX_INDEX] : colors[colorIndex]
         }
       };
     }
