@@ -8,12 +8,24 @@ export default function Header() {
   return (
     <div className="header">
       <h1 className="heading">COVID-19 Cases In Morocco by Region</h1>
-      {total && (
-        <div className="header__stats">
+      <div className="header__stats">
+        {total && (
           <div className="header__total">
-            <div className="stats-heading">Total Confirmed</div>
-            <div className="stats-number">{total}</div>
+            <div
+              className={`stats-heading ${!deaths &&
+                !recovered &&
+                'stats-heading--large'}`}>
+              Total Confirmed
+            </div>
+            <div
+              className={`stats-number ${!deaths &&
+                !recovered &&
+                'stats-number--large'}`}>
+              {total}
+            </div>
           </div>
+        )}
+        {deaths && recovered && (
           <div className="header__sub-totals">
             <div className="header__sub-totals-container">
               <div className="header__sub-total">
@@ -34,8 +46,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

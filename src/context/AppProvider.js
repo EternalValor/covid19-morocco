@@ -14,8 +14,6 @@ export default function AppProvider({ children }) {
 
   React.useEffect(() => {
     const expiresAt = window.localStorage.getItem('EXPIRES_AT');
-    console.log(!!expiresAt && +new Date() - expiresAt > 0);
-    console.log('expiresAt = ', expiresAt);
     if (!!expiresAt) {
       if (+new Date() - parseInt(expiresAt) > 0) {
         fetchData(setState);

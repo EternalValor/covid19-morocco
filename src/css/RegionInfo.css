@@ -23,11 +23,20 @@
   font-size: 1.2rem;
 }
 
+.region-stats__heading--large {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
 .region-stats__number {
   color: var(--danger);
-  font-size: 3.5rem;
+  font-size: 2.2rem;
   font-weight: 500;
   line-height: 1.1;
+}
+
+.region-stats__number--large {
+  font-size: 3.5rem;
 }
 
 .region-stats__number--small {

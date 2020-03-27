@@ -35,10 +35,17 @@
   font-size: 1.6rem;
 }
 
+.stats-heading--large {
+  font-size: 2.15rem;
+}
+
 .stats-number {
   color: var(--danger);
   font-size: 3.6rem;
-  /* margin-top: 0.5rem; */
+}
+
+.stats-number--large {
+  font-size: 4rem;
 }
 
 .stats-number--small {

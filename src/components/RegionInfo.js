@@ -24,18 +24,20 @@ export default function RegionInfo({ id }) {
       <h3 className="region__heading">{title}</h3>
       <div className="region-stats">
         <div className="region__total">
-          <div className="region-stats__heading">Total Confirmed</div>
           <div
-            className="region-stats__number"
-            style={
-              regions[title] && regions[title].recovered >= 0
-                ? { fontSize: '2.2rem' }
-                : {}
-            }>
+            className={`region-stats__heading ${regions[title] &&
+              regions[title].recovered === null &&
+              'region-stats__heading--large'}`}>
+            Total Confirmed
+          </div>
+          <div
+            className={`region-stats__number ${regions[title] &&
+              regions[title].recovered === null &&
+              'region-stats__number--large'}`}>
             {regions[title] ? regions[title].total : 0}
           </div>
         </div>
-        {regions[title] && regions[title].recovered >= 0 && (
+        {regions[title] && regions[title].recovered !== null && (
           <div className="region__sub-totals">
             <div className="region__sub-totals-container">
               <div className="region__sub-total">
