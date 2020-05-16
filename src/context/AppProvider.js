@@ -3,7 +3,7 @@ import { colors } from '../constants';
 
 export const AppContext = React.createContext();
 
-const LOG_BASE = 2.5;
+const LOG_BASE = 3.9;
 const MAX_INDEX = colors.length - 1;
 const REFRESH_DELAY = 1.5;
 
@@ -33,7 +33,7 @@ export default function AppProvider({ children }) {
 }
 
 async function fetchData(setState) {
-  fetch('https://angry-knuth.netlify.com/.netlify/functions/api/covid-19')
+  fetch('https://angry-knuth.netlify.app/.netlify/functions/api/covid-19')
     .then(res => res.json())
     .then(data => {
       if (!data.error) {

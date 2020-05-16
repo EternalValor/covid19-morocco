@@ -32,7 +32,7 @@ export default function Header() {
                 <div className="stats-heading">Deaths</div>
                 <div className="stats-number stats-number--small">{deaths}</div>
               </div>
-              <div className="header__sub-total">
+              {/* <div className="header__sub-total">
                 <div className="stats-heading">Recovered</div>
                 <div className="stats-number stats-number--green stats-number--small">
                   {recovered}
@@ -43,7 +43,7 @@ export default function Header() {
                 <div className="stats-number stats-number--yellow stats-number--small">
                   {total - deaths - recovered}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
