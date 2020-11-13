@@ -6,7 +6,7 @@ import { ReactComponent as GitHubLogo } from '../assets/github-logo.svg';
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="footer__credit">Maintained by Othmane Tayab</div>
+      <div className="footer__credit">Maintained by <a className="link" href="https://www.othmanetayab.me">Othmane Tayab</a></div>
       <div className="footer__github">
         <a
           href="https://github.com/EternalValor/covid19-morocco"
